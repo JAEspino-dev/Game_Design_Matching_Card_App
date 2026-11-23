@@ -18,7 +18,7 @@ Use this program if you want to play a matching card game!
 # 🔨 Built With
 * HTML5 – structure    
 * CSS3 – responsive design and background   
-* JavaScript - fetch image of the day from NASA API 
+* JavaScript - game logic and DOM updating
 
 # 🧠 What I Learned
 * How to work with Node    
