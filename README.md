@@ -2,7 +2,7 @@
 Use this program if you want to play a matching card game! 
 
 # Link
-[Check out the Site!](https://matching-card-app.onrender.com/)
+[Check out the Site!](https://game-design-matching-card-app.onrender.com/)
 
 # 📋 How to use
 1. Open the app in your browser
