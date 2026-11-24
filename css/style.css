@@ -1,4 +1,4 @@
-  /******************************************
+ /******************************************
   /* CSS
   /*******************************************/
 
@@ -31,6 +31,7 @@
     border-radius: 10px;
     width: 50%;
     min-height: 100px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,10 +57,13 @@
   /******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
+
   #container {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    width: 100%;
   }
 
   .Randomcard {

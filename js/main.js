@@ -1,3 +1,72 @@
+// // game link is: https://www.helpfulgames.com/subjects/brain-training/memory.html
+// // empty container
+// const container = document.querySelector('#container')
+
+// // when someone clicks a card: 
+// container.addEventListener('click', pickCard)
+
+// // to reset the card layout: 
+// document.querySelector('button').addEventListener('click', randomCardBoardSetup)
+
+// // store the card that someone clicks on: 
+// let firstCardPicked = undefined
+// let secondCardPicked = undefined
+
+// function randomCardBoardSetup() {
+// // reset cards to empty value
+//   container.innerHTML = ''
+
+//   let cardsToBeSpreadOnScreen = ['dog', 'dog', 'cat', 'cat', 'chicken', 'chicken', 'hippo', 'hippo', 'lion', 'lion']
+//   while (cardsToBeSpreadOnScreen.length > 0) {
+//     const order = Math.floor(Math.random() * cardsToBeSpreadOnScreen.length)
+//     // creating a variable where we create 
+//     const createCard = document.createElement('div') // creating a div in HTML
+//     container.appendChild(createCard) // adding the div/card that we created in line above to the container in the HTML/DOM
+//     createCard.innerText = 'Card'
+//     createCard.classList.add(cardsToBeSpreadOnScreen[order]) // set class of cards to random class from array
+//     // removes class name from array 'cardsToBeSpreadOnScreen' so it doesn't assign it to another div
+//     cardsToBeSpreadOnScreen.splice(order, 1)
+//   }
+
+//   //
+//   firstCardPicked = undefined
+//   secondCardPicked = undefined
+
+// }
+
+// // on page load, load the cards on the webpage so people can start playing:
+// randomCardBoardSetup()
+
+
+// // Game logic = everytime an element in the container (in html) is clicked, the div's innertext becomes the class name
+// function pickCard(event) {
+//   console.log(event)
+//   event.target.innerText = event.target.className // the element that you clicked on in the container, reassign it's innertext to class name
+//   if (firstCardPicked != undefined) { // card would not be undefined if it's been clicked, it now = the class name
+//     secondCardPicked = event.target // the thing that was clicked on 
+//   } else {
+//     firstCardPicked = event.target
+//     return
+//   }
+
+//   if (firstCardPicked.className === secondCardPicked.className) { // 
+//     console.log('Match, cards have the same class name')
+//   } else {
+//     console.log('Not a Match, cards will be flipped over')
+//     firstCardPicked.innerText = 'Card'
+//     secondCardPicked.innerText = 'Card'
+//   }
+
+//   // What does this do?
+//   firstCardPicked = undefined
+//   secondCardPicked = undefined
+
+//   // if the two cards match, it's a pair - the cards should disappear
+//   // 
+// }
+
+
+// updated javascript file:
 // game link is: https://www.helpfulgames.com/subjects/brain-training/memory.html
 // empty container
 const container = document.querySelector('#container')
@@ -13,61 +82,57 @@ let firstCardPicked = undefined
 let secondCardPicked = undefined
 
 function randomCardBoardSetup() {
-// reset cards to empty value
+  // reset cards to empty value
   container.innerHTML = ''
 
   let cardsToBeSpreadOnScreen = ['dog', 'dog', 'cat', 'cat', 'chicken', 'chicken', 'hippo', 'hippo', 'lion', 'lion']
   while (cardsToBeSpreadOnScreen.length > 0) {
     const order = Math.floor(Math.random() * cardsToBeSpreadOnScreen.length)
-    // creating a variable where we create 
     const createCard = document.createElement('div') // creating a div in HTML
-    container.appendChild(createCard) // adding the div/card that we created in line above to the container in the HTML/DOM
+    container.appendChild(createCard) // adding the div/card to the container in the HTML/DOM
     createCard.innerText = 'Card'
-    createCard.classList.add(cardsToBeSpreadOnScreen[order]) // set class of cards to random class from array
-    // removes class name from array 'cardsToBeSpreadOnScreen' so it doesn't assign it to another div
+    createCard.classList.add('Randomcard') // gives the card its CSS styling
+    createCard.dataset.animal = cardsToBeSpreadOnScreen[order] // store the random animal on the card
+    // removes animal from array 'cardsToBeSpreadOnScreen' so it doesn't assign it to another div
     cardsToBeSpreadOnScreen.splice(order, 1)
   }
 
-  //
   firstCardPicked = undefined
   secondCardPicked = undefined
-
 }
 
 // on page load, load the cards on the webpage so people can start playing:
 randomCardBoardSetup()
 
 
-// Game logic = everytime an element in the container (in html) is clicked, the div's innertext becomes the class name
+// Game logic = every time a card in the container is clicked, the card's innerText becomes its animal
 function pickCard(event) {
+  // ignore clicks that aren't on a card (like the gap between cards)
+  if (!event.target.classList.contains('Randomcard')) return
+
   console.log(event)
-  event.target.innerText = event.target.className // the element that you clicked on in the container, reassign it's innertext to class name
-  if (firstCardPicked != undefined) { // card would not be undefined if it's been clicked, it now = the class name
+  event.target.innerText = event.target.dataset.animal // show the animal on the clicked card
+  if (firstCardPicked != undefined) { // a first card has already been picked
     secondCardPicked = event.target // the thing that was clicked on 
   } else {
     firstCardPicked = event.target
     return
   }
 
-  if (firstCardPicked.className === secondCardPicked.className) { // 
-    console.log('Match, cards have the same class name')
+  if (firstCardPicked.dataset.animal === secondCardPicked.dataset.animal) {
+    console.log('Match, cards have the same animal')
   } else {
     console.log('Not a Match, cards will be flipped over')
     firstCardPicked.innerText = 'Card'
     secondCardPicked.innerText = 'Card'
   }
 
-  // What does this do?
+  // reset both picks so the next click starts a new turn
   firstCardPicked = undefined
   secondCardPicked = undefined
 
   // if the two cards match, it's a pair - the cards should disappear
-  // 
 }
-
-
-
-
 
 
 
