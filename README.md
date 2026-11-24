@@ -5,7 +5,7 @@ Use this program if you want to play a matching card game!
 [Check out the Site!](https://game-design-matching-card-app.onrender.com/)
 
 # 📷 Images
-<img width="1091" height="922" alt="Screenshot 2026-10-05 at 1 04 23 AM" src="https://github.com/user-attachments/assets/2ca7ce81-0275-4476-880a-c56c92c89e3a" />
+<img width="1091" height="922" alt="Screenshot 2026-10-05 at 1 04 23 AM" src="screenshot.png"/>
 
 # 📋 How to use
 1. Open the app in your browser
